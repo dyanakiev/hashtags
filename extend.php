@@ -41,7 +41,7 @@ return [
         for (i = 0; i < entries.length; i = i + 1) {
           if((entries[i].innerHTML.indexOf("]") == -1)       
           && (entries[i].innerHTML.indexOf("=") == -1)) {
-              entries[i].innerHTML = entries[i].innerHTML.replace(/((?!([\S]))[\S\s])#(\p{L}[\w\-]+)/gu,' <a href="'+siteURL+'/all?q=$3" class="hashlink" title="Find more posts tagged with $3">#$3</a>');
+              entries[i].innerHTML = entries[i].innerHTML.replace(/((?!([\S]))[\S\s])#(\p{L}[\w\-]+)/gu,' <a href="'+siteURL+'/?q=$3" class="hashlink" title="Find more posts tagged with $3">#$3</a>');
           }
       } 
     }  
@@ -53,7 +53,7 @@ HTML;
         ->configure(function (Configurator $config) {
             $config->BBCodes->addCustom(
                 '[t]{TEXT100}[/t]',
-                '<a href="/all?q={TEXT100}" class="tagPhrase" title="Find more posts related to {TEXT100}">{TEXT100}</a>'
+                '<a href="/?q={TEXT100}" class="tagPhrase" title="Find more posts related to {TEXT100}">{TEXT100}</a>'
             );
         })
 ];
